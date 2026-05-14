@@ -1,0 +1,17 @@
+{
+  "server": {
+    "host": "mc.reallyworld.ru",
+    "port": 25565,
+    "name": "panasonic67"
+  },
+  "targetNick": "КИЗЫ' БОА КОНДА",
+  "ownerNick": "batyapromax",
+  "telegram": {
+    "token": "8711378356:AAFH8aZrXYNoWZd_cCsHCVhvttVZWLcOJSs",
+    "chatId": "8711378356"
+  },
+  "bot": {
+    "username": "AFK_Monitor_Bot",
+    "password": "222888ff"
+  }
+}
