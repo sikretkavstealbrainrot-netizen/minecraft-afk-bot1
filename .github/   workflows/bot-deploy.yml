@@ -1,0 +1,38 @@
+name: Deploy Minecraft Bot
+
+on:
+  workflow_dispatch:  # ЭТО ВКЛЮЧАЕТ КНОПКУ "Run workflow"
+    inputs:
+      server_host:
+        description: 'IP сервера'
+        required: true
+        default: 'mc.realworld.ru'
+      target_nick:
+        description: 'Ник для отслеживания'
+        required: true
+        default: 'КИЗЫ БОА КОНДА'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y scrot ffmpeg imagemagick
+          npm install
+      
+      - name: Run bot
+        run: node bot.js
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
